@@ -1,0 +1,26 @@
+.flexbox-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top:10px; 
+}
+
+.flexbox-container > div {
+    background: rgb(255, 255, 255);
+    border-radius: .25rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+    border: 1px solid rgb(221, 219, 218);
+}
+.flexbox-container > div:nth-child(2) {
+	margin-left:10px;
+}
+ .pageDescription{
+    margin-left: 10px;
+    display: inline;
+    font-weight: bold;
+}
+ .similar-opportunity-criteria{
+    width: 20%;
+}
+ .similar-opportunity-results{
+    width: 100%;
+}

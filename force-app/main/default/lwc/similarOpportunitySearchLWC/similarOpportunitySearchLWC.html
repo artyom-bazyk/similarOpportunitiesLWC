@@ -1,0 +1,33 @@
+<template>
+    <lightning-card>
+        <span slot="title">
+            <lightning-icon icon-name="standard:opportunity" size="medium"></lightning-icon>
+            <p class="pageDescription">
+                {state.opportunity.Name}
+            </p>            
+        </span>        
+        <p class="slds-p-horizontal_small">   
+            Results include closed won opportunities that have one or more fields in common with your opportunity. Bookmarking opportunities adds them to the Similar Opportunities related list on your opportunity detail page.
+        </p>
+    </lightning-card>
+    
+    <div class="flexbox-container ">
+        <div class="similar-opportunity-criteria">
+            <c-similar-opportunity-criteria-l-w-c
+                field-description-list={state.fieldDescriptionList}
+                selected-month={state.lastNMonths}>
+            </c-similar-opportunity-criteria-l-w-c>
+        </div>
+        <div class="similar-opportunity-results">
+            <div>
+                <c-similar-opportunity-results-l-w-c
+                    field-description-list={state.fieldDescriptionList}
+                    opportunity={state.opportunity}
+                    all-fields={state.allFields}
+                    selected-month={state.lastNMonths}
+                    selected-fields={state.selectedFields}>
+                </c-similar-opportunity-results-l-w-c>
+            </div>
+        </div>
+    </div>   
+</template>

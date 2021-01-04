@@ -1,0 +1,33 @@
+<template>
+    <article class="slds-card lightning-card slds-card_boundary">
+        <div class="slds-card__header slds-grid slds-theme_shade">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate ">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:opportunity" size="small"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <h2 class="slds-card__header-title"><b>Similar Opportunities</b></h2>
+            </div>
+            <div class="slds-no-flex">
+                <lightning-button label="Find" onclick={hanldeFindButton}></lightning-button>
+            </div>
+            </header>
+        </div>
+        <template if:true={hasRecords}>
+            <div>
+                <lightning-datatable
+                    class="related-list"
+                    columns={state.columns}
+                    data={state.records}
+                    key-field="Id"
+                    onrowaction={handleRowAction}
+                    hide-checkbox-column="true"
+                    resize-column-disabled="true"> 
+                </lightning-datatable>
+            </div>
+            <footer if:true={showShowMore} class="slds-card__footer">
+                <a onclick={handleShowMore}>Show more</a>
+            </footer>     
+        </template>
+        </article>                       
+</template>

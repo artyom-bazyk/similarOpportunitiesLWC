@@ -1,0 +1,23 @@
+<template>
+    <div class="slds-align_absolute-center">
+        <lightning-button if:true={hasRecords} label="Bookmark" onclick={handleBookmarkButton}></lightning-button>
+        <lightning-button label="Cancel" onclick={handleCancelButton} class="slds-m-left_x-small"></lightning-button>
+    </div>    
+    <template if:true={hasRecords}>     
+        <lightning-datatable
+            class="related-list"
+            columns={state.columns}
+            data={state.records}
+            key-field="Id"
+            resize-column-disabled="true"
+            show-row-number-column="true"
+            onrowselection={handleRowSelection}
+            selected-rows={state.selectedRows}>
+        </lightning-datatable> 
+    </template>
+    <div class="slds-align_absolute-center" >
+        <a if:true={showMore} onclick={handleShowMore}>Show more</a>
+        <p if:false={hasRecords}>No records to display.</p>
+    </div>        
+  
+</template>

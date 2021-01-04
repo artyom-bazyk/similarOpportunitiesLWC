@@ -1,0 +1,25 @@
+<template>
+    <lightning-accordion allow-multiple-sections-open="true" active-section-name="name">
+        <lightning-accordion-section name="name" label="Close Date Within">
+            <lightning-combobox
+                class="close-date-select"
+                value={state.selectedMonth}
+                options={state.monthsRange}
+                onchange={handleSelectChange} >
+            </lightning-combobox>            
+        </lightning-accordion-section>
+    </lightning-accordion>
+
+    <template for:each={fieldDescriptionList} for:item="fieldDescription">
+        <lightning-accordion if:true={fieldDescription.value} key={fieldDescription.apiName} allow-multiple-sections-open="true" active-section-name="name">
+            <lightning-accordion-section name="name" label={fieldDescription.label}>
+                <lightning-input type="checkbox" 
+                    label={fieldDescription.value} 
+                    name={fieldDescription.value}
+                    value={fieldDescription.apiName}
+                    onchange={handleCriteriaChange}>
+                </lightning-input>
+            </lightning-accordion-section>
+        </lightning-accordion>    
+    </template>        
+</template>
